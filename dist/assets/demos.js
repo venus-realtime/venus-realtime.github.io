@@ -2,8 +2,8 @@
 // The supplied examples are explicitly presented as manuscript walkthroughs.
 window.VENUS_DEMOS = [
   {
-    id: 'proactive', type: 'walkthrough', model: 'VENUS-REALTIME-OMNI',
-    category: 'PROACTIVE PERCEPTION', title: 'Notice the moment that matters.',
+    id: 'proactive', type: 'walkthrough', model: 'Venus-Realtime-Omni',
+    category: 'Proactive perception', title: 'Notice the moment that matters',
     summary: 'Venus keeps watching and listening after the request, then responds when the relevant event happens.',
     source: 'Illustrated from Figure 4. No recorded model audio or video. Timeline markers come from the paper.',
     figure: './assets/proactive-example.png', filmstrip: './assets/proactive-filmstrip.jpg',
@@ -16,11 +16,11 @@ window.VENUS_DEMOS = [
       {time:16, end:20, role:'Scene event', text:'The referee blows the whistle.', kind:'event'},
       {time:16, end:20, role:'Venus', text:'The referee has blown the whistle! The game has started.'}
     ],
-    note: 'The figure marks the reminder at 16s; it does not report its speech duration. The walkthrough ends at 20s for presentation.'
+    note: 'The figure marks the reminder at 16 s; it does not report its speech duration. The walkthrough ends at 20 s for presentation.'
   },
   {
-    id:'delegation', type:'walkthrough', model:'VENUS-REALTIME-OMNI',
-    category:'ASYNCHRONOUS DELEGATION',title:'Get answers while life keeps moving.',
+    id:'delegation', type:'walkthrough', model:'Venus-Realtime-Omni',
+    category:'Asynchronous delegation',title:'Get answers while life keeps moving',
     summary:'The frontend acknowledges a request while the harness looks up external information. The audio–visual stream continues throughout.',
     source:'Illustrated from Figure 4. English translation of the paper’s Chinese dialogue; the traffic information belongs to that example.',
     figure:'./assets/delegation-example.png',filmstrip:'./assets/delegation-filmstrip.jpg',
@@ -37,8 +37,8 @@ window.VENUS_DEMOS = [
     note:'Traffic information is quoted from the paper example, not current guidance. The five-second query interval is an example timeline, not a latency benchmark.'
   },
   {
-    id:'interruption',type:'walkthrough',model:'VENUS-REALTIME-AUDIO',
-    category:'FULL-DUPLEX CONVERSATION',title:'Change direction mid-conversation.',
+    id:'interruption',type:'walkthrough',model:'Venus-Realtime-Audio',
+    category:'Full-duplex conversation',title:'Change direction mid-conversation',
     summary:'Venus listens during its own response, yields to the follow-up, and answers the revised question.',
     source:'Illustrated from Figure 4. Original English dialogue; no recorded speech or live model connection.',
     figure:'./assets/interruption-example.png',duration:30,input:'Audio input',
