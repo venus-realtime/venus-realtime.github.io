@@ -8,9 +8,15 @@ window.VENUS_DEMOS = [
     source: 'Illustrated from Figure 4. No recorded model audio or video. Timeline markers come from the paper.',
     figure: './assets/proactive-example.png', filmstrip: './assets/proactive-filmstrip.jpg',
     filmstripAlt: 'Original football-match frames from the manuscript example.',
-    duration: 20, input: 'Audio + video input',
+    duration: 20, input: 'Audio + video input', filmstripDuration: 40,
+    opening: 'You are watching a football match. Ask Venus to catch the opening whistle.',
+    spotlight: {time:16, label:'See the whistle response'},
+    phases: [
+      {time:0, title:'Follow the match', detail:'Continuous perception keeps the scene in context.', channels:['listen']},
+      {time:3, title:'The reminder is set', detail:'Venus keeps watching for the requested event.', channels:['listen']},
+      {time:16, title:'The whistle blows. Venus responds.', detail:'The event triggers a spoken reminder.', channels:['listen','speak'], accent:'response'}
+    ],
     marks: [{time:3,label:'Set a reminder'},{time:16,label:'The whistle blows'}],
-    states: [{time:0,label:'Following the scene'},{time:3,label:'Watching for the requested event'},{time:16,label:'Responding to the event'}],
     events: [
       {time:3, end:16, role:'You', text:'When the referee blows the whistle, please remind me.'},
       {time:16, end:20, role:'Scene event', text:'The referee blows the whistle.', kind:'event'},
@@ -25,9 +31,17 @@ window.VENUS_DEMOS = [
     source:'Illustrated from Figure 4. English translation of the paper’s Chinese dialogue; the traffic information belongs to that example.',
     figure:'./assets/delegation-example.png',filmstrip:'./assets/delegation-filmstrip.jpg',
     filmstripAlt:'Original driving-scene frames from the manuscript example.',
-    duration:22,input:'Audio + video input',
+    duration:22,input:'Audio + video input',filmstripDuration:40,
+    opening:'You are on the road. Ask Venus to check the day’s driving restrictions.',
+    spotlight:{time:10,label:'See the background lookup'},
+    phases:[
+      {time:0,title:'Follow the road',detail:'The audio–visual context stays available.',channels:['listen']},
+      {time:3,title:'You ask. Venus listens.',detail:'A question needs information from an external service.',channels:['listen']},
+      {time:8,title:'Acknowledge the request',detail:'A short reply keeps the conversation moving.',channels:['listen','speak']},
+      {time:10,title:'The lookup runs. Input stays active.',detail:'The harness works in parallel with the interaction loop.',channels:['listen','delegate'],accent:'delegation'},
+      {time:15,title:'The answer rejoins the conversation',detail:'The returned information is delivered as a spoken response.',channels:['listen','speak'],accent:'response'}
+    ],
     marks:[{time:3,label:'Ask a question'},{time:10,label:'Delegate the lookup'},{time:15,label:'Bring the answer back'}],
-    states:[{time:0,label:'Following the scene'},{time:3,label:'Receiving the request'},{time:8,label:'Acknowledging'},{time:10,label:'Harness working · input continues'},{time:15,label:'Delivering the answer'}],
     events:[
       {time:3,end:8,role:'You',text:'Please check which license-plate endings are restricted in Beijing today.'},
       {time:8,end:10,role:'Venus',text:'Sure, I’ll check.'},
@@ -42,8 +56,16 @@ window.VENUS_DEMOS = [
     summary:'Venus listens during its own response, yields to the follow-up, and answers the revised question.',
     source:'Illustrated from Figure 4. Original English dialogue; no recorded speech or live model connection.',
     figure:'./assets/interruption-example.png',duration:30,input:'Audio input',
+    opening:'You are planning a road trip. Start with a request, then change direction while Venus speaks.',
+    spotlight:{time:13,label:'See the interruption'},
+    phases:[
+      {time:0,title:'Ready to listen',detail:'A conversation can change direction at any moment.',channels:['listen']},
+      {time:1,title:'You set the task',detail:'Venus receives the road-trip request.',channels:['listen']},
+      {time:5,title:'Speaking, still listening',detail:'The response begins while incoming speech remains available.',channels:['listen','speak']},
+      {time:13,title:'You interrupt. Venus yields.',detail:'The earlier response stops so the follow-up can take the floor.',channels:['listen'],accent:'interruption'},
+      {time:15,title:'A new answer follows your question',detail:'Venus addresses the revised request.',channels:['listen','speak'],accent:'response'}
+    ],
     marks:[{time:5,label:'Venus speaks'},{time:13,label:'You interrupt'},{time:15,label:'The response adapts'}],
-    states:[{time:0,label:'Listening'},{time:1,label:'Receiving the request'},{time:5,label:'Speaking and listening'},{time:13,label:'Yielding to the interruption'},{time:15,label:'Answering the follow-up'}],
     events:[
       {time:1,end:5,role:'You',text:'Help me plan a three-day road trip with safe pacing.'},
       {time:5,end:13,role:'Venus',text:'Aim for 5–7 driving hours daily, take a break every two hours, plus lunch and an…',interrupted:true},

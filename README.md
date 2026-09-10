@@ -6,11 +6,13 @@ Project website for **Venus-Realtime: A full-duplex interaction system with asyn
 
 ## Website content
 
-A demo-led presentation of proactive audio–visual interaction, full-duplex speech and asynchronous delegation. It includes three interactive paper-example walkthroughs with playback, scrubbing, chapter navigation and complete transcripts; research highlights; expandable system and evaluation details; and a copyable citation.
+A demo-led presentation of proactive audio–visual interaction, full-duplex speech and asynchronous delegation. Three animated paper-example scenes reveal dialogue at each event and show the listening, speaking and delegation state. Visitors can play, pause, scrub, choose 1×/1.5×/2× playback, jump to chapters, watch a key moment, replay, and expand the complete transcript. Research highlights, expandable system and evaluation details, and a copyable citation follow the demos.
 
 The reading order is overview → demos → results → method → paper. Navigation follows that order; architecture and detailed benchmarks expand on demand.
 
 The walkthroughs are **illustrations reconstructed from Figure 4**, not real model recordings or a live service. All dialogue and scores come from the September 9, 2026 manuscript. The delegation transcript is translated from Chinese and its example traffic information is not current guidance.
+
+The filmstrip cursor uses the original figure’s 0–40 s axis, independently of the shorter authored playback endpoints. Dialogue appears as complete messages at the reported events; no word-level speech timing or generated audio is implied. Playback starts only on visitor action. Reduced-motion preferences disable message entrances and activity motion, and make the filmstrip cursor step between phases.
 
 ## Local preview
 
@@ -19,6 +21,8 @@ The complete static site is in `dist/`. There are no dependencies or build steps
 ```sh
 python3 -m http.server 4173 --bind 127.0.0.1 --directory dist
 ```
+
+Run the timeline regression checks with `node --test tests/demo-timeline.test.cjs`. They cover the whistle trigger, overlapping delegation/input, interruption handling, the original filmstrip time axis, rewinding and completion.
 
 ## Add recorded demos
 
@@ -44,6 +48,7 @@ Edit `dist/assets/demos.js`. For an existing scene, set `type` to `video` and ad
 - `dist/assets/site.css`: responsive styling.
 - `dist/assets/site.js`: walkthroughs, video playback and citation copying.
 - `dist/assets/demos.js`: demo content and media settings.
+- `dist/assets/demo-engine.js`: shared, deterministic timeline state for animation and navigation.
 - `dist/assets/*example.png`: original Figure 4 examples.
 - `dist/assets/*filmstrip.jpg`: original manuscript image strips.
 - `dist/assets/fonts/InterVariable.woff2`: self-hosted Inter variable font.
