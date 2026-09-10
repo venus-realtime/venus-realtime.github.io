@@ -71,8 +71,8 @@
       visual.append(strip);
     } else {
       const lanes = node('div', 'audio-lanes');
-      const listen = node('div', '', 'LISTEN'); listen.append(node('span', 'listening-lane', 'Incoming speech'));
-      const speak = node('div', '', 'SPEAK'); speak.append(node('span', 'speaking-lane', 'Response → interruption → new response'));
+      const listen = node('div', '', 'Listen'); listen.append(node('span', 'listening-lane', 'Incoming speech'));
+      const speak = node('div', '', 'Speak'); speak.append(node('span', 'speaking-lane', 'Response → interruption → new response'));
       lanes.append(listen, speak); visual.append(lanes);
     }
     stateLabel = node('p', 'walkthrough-state'); visual.append(stateLabel); media.append(visual);
@@ -95,7 +95,7 @@
     bar.append(playButton, scrubber, timeLabel); controls.append(bar);
     const chapters = node('div', 'walkthrough-chapters');
     current.marks.forEach(mark => {
-      const button = node('button', '', `${String(mark.time).padStart(2, '0')}s · ${mark.label}`); button.type = 'button';
+      const button = node('button', '', `${mark.time} s · ${mark.label}`); button.type = 'button';
       button.addEventListener('click', () => { stop(); time = mark.time; update(); }); chapters.append(button);
     });
     controls.append(chapters, node('p', 'playback-note', current.note)); update();
@@ -119,7 +119,7 @@
     tabs.forEach(tab => { const active = tab.dataset.demo === id; tab.setAttribute('aria-selected', String(active)); tab.tabIndex = active ? 0 : -1; if (active && focus) tab.focus(); });
     panel.setAttribute('aria-labelledby', 'tab-' + id);
     document.getElementById('demo-model').textContent = current.model;
-    document.getElementById('demo-format').textContent = current.type === 'video' ? 'RECORDED DEMO' : 'PAPER EXAMPLE REPLAY';
+    document.getElementById('demo-format').textContent = current.type === 'video' ? 'Recorded demo' : 'Paper example replay';
     document.getElementById('demo-category').textContent = current.category;
     document.getElementById('demo-title').textContent = current.title;
     document.getElementById('demo-summary').textContent = current.summary;
