@@ -55,6 +55,8 @@ Edit `dist/assets/demos.js`. For an existing scene, set `type` to `video` and ad
 
 ## Typography and editorial style
 
+The interface uses white and pale blue-gray surfaces throughout. Blue identifies primary actions and speech, teal identifies listening and returned responses, amber identifies delegation, and rose identifies interruptions. Text uses dark foregrounds, with labels and state names reinforcing the colors.
+
 Inter is bundled from the [official Inter distribution](https://rsms.me/inter/) with its SIL Open Font License in `dist/assets/fonts/OFL.txt`. It is served locally; visitors do not need to contact an external font provider. The layout uses 400, 500 and 600 weights, a 16 px body size, and a 13 px minimum for supporting labels. Heading sizes adapt to viewport width. Code uses a system monospace face; metrics and timestamps use tabular numerals.
 
 Use sentence case for headings and interface labels. Preserve official names (`Venus-Realtime-Omni`, `Venus-Realtime-Audio`, `Venus-Realtime-Harness`), benchmark names and acronyms. Use `BibTeX`, `Figure 4` and `13 s` rather than all-caps labels or zero-padded figure numbers. Keep dynamic demo labels consistent with the initial HTML.
