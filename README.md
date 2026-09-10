@@ -55,7 +55,7 @@ Edit `dist/assets/demos.js`. For an existing scene, set `type` to `video` and ad
 
 ## Typography and editorial style
 
-The interface uses white and pale blue-gray surfaces throughout. Blue identifies primary actions and speech, teal identifies listening and returned responses, amber identifies delegation, and rose identifies interruptions. Text uses dark foregrounds, with labels and state names reinforcing the colors.
+The interface uses white, pale blue-gray and brand-tinted surfaces. The `#1677FF` brand accent follows the [official Ant Design color specification](https://ant-design.antgroup.com/docs/spec/colors-cn); its darker `#0958D9` shade keeps small links and button labels readable. Brand blue unifies the hero, demo selection, activity indicators and metrics. Channel labels distinguish listening, speech and delegation; interruption notes use a restrained text accent. Demo controls share the same column as the scene, and the four headline metrics form one consistent grid.
 
 Inter is bundled from the [official Inter distribution](https://rsms.me/inter/) with its SIL Open Font License in `dist/assets/fonts/OFL.txt`. It is served locally; visitors do not need to contact an external font provider. The layout uses 400, 500 and 600 weights, a 16 px body size, and a 13 px minimum for supporting labels. Heading sizes adapt to viewport width. Code uses a system monospace face; metrics and timestamps use tabular numerals.
 
