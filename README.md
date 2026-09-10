@@ -1,32 +1,50 @@
-# Venus-Realtime project website
+# Venus-Realtime
 
-A responsive static academic project page based on the authorized Overleaf manuscript, dated September 9, 2026.
+Project website for **Venus-Realtime: A full-duplex interaction system with asynchronous delegation**.
 
-## Content
+**Public website:** https://venus-realtime.github.io/
 
-- Two 9B conversational frontends and the shared asynchronous Harness.
-- Three figures extracted from the source manuscript: Figures 1, 3, and 5.
-- Selected benchmark scores with evaluation scope and conditions.
-- Manuscript link and a copyable BibTeX reference.
+## Website content
 
-The manuscript supplies no public Venus code, model, arXiv, or DOI URL, so none is invented. The manuscript link opens Overleaf and may require access permission.
+A demo-led presentation of proactive audio–visual interaction, full-duplex speech and asynchronous delegation. It includes three interactive paper-example walkthroughs with playback, scrubbing, chapter navigation and complete transcripts; research highlights; expandable system and evaluation details; and a copyable citation.
 
-## Edit and preview
+The walkthroughs are **illustrations reconstructed from Figure 4**, not real model recordings or a live service. All dialogue and scores come from the September 9, 2026 manuscript. The delegation transcript is translated from Chinese and its example traffic information is not current guidance.
 
-The complete website is in `dist/`; no dependencies or build step are required.
+## Local preview
+
+The complete static site is in `dist/`. There are no dependencies or build steps.
 
 ```sh
 python3 -m http.server 4173 --bind 127.0.0.1 --directory dist
 ```
 
-- `dist/index.html`: website content.
-- `dist/assets/site.css`: responsive layout and theme.
-- `dist/assets/site.js`: citation-copy interaction.
-- `dist/assets/*.png`: manuscript figures.
-- `dist/.nojekyll`: static GitHub Pages marker.
+## Add recorded demos
 
-## Publishing
+Edit `dist/assets/demos.js`. For an existing scene, set `type` to `video` and add a direct video URL or a path to a file inside `dist/`. The viewer uses a native video player with keyboard controls and no autoplay. Update the scene title, summary and source to describe the real recording.
 
-The intended GitHub Pages URL is `https://venus-realtime.github.io/`. This requires management rights to the `venus-realtime` account or organization and its `venus-realtime.github.io` repository. A Sites private preview is separate from this GitHub Pages destination.
+```js
+{
+  id: 'proactive',
+  type: 'video',
+  src: './assets/demos/proactive.mp4',
+  poster: './assets/demos/proactive-poster.jpg',
+  captions: './assets/demos/proactive.en.vtt',
+  language: 'en',
+  // Keep and update the existing model, category, title, summary and source.
+}
+```
 
-For GitHub Pages, publish the contents of `dist/` at the repository's publishing root. Do not publish private notes, downloaded source files, or authentication material in `work/`. Current deployment details are recorded in `work/`.
+`poster`, `captions` and `language` are optional. Use owned or authorized footage and captions. Never add API keys or credentials to the static website. The manuscript provides no public Venus model/code download URL, so none has been invented.
+
+## Files
+
+- `dist/index.html`: page content and navigation.
+- `dist/assets/site.css`: responsive styling.
+- `dist/assets/site.js`: walkthroughs, video playback and citation copying.
+- `dist/assets/demos.js`: demo content and media settings.
+- `dist/assets/*example.png`: original Figure 4 examples.
+- `dist/assets/*filmstrip.jpg`: original manuscript image strips.
+
+## Deployment
+
+The `main` branch holds source; the `gh-pages` branch publishes the contents of `dist/` at the site root. The private Sites preview is a separate deployment of the same static output. Workspace-only downloads and notes in `work/` and packaged deliverables in `outputs/` are excluded from Git.
